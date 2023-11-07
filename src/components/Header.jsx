@@ -1,19 +1,19 @@
-import React, { useEffect, useState } from "react";
-import "./Header.css";
-import amazonLogo from "../Assets/amazon-logo.png";
 import SearchIcon from "@mui/icons-material/Search";
 import ShoppingBasket from "@mui/icons-material/ShoppingBasket";
-import { Link } from "react-router-dom";
-import globalStore from "../Services/globalStore";
-import { auth } from "../Services/firebase";
 import { signOut } from "firebase/auth";
+import React, { useEffect } from "react";
+import { Link } from "react-router-dom";
+import amazonLogo from "../Assets/amazon-logo.png";
+import { auth } from "../Services/firebase";
+import globalStore from "../Services/globalStore";
+import "./Header.css";
 
 export default function Header() {
   const { kartItems } = globalStore()
-  const [user, setUser] = useState(auth.currentUser)
+  // const [_, setUser] = useState(auth.currentUser)
   useEffect(() => {
     auth.onAuthStateChanged(user => {
-    setUser(user)
+    // setUser(user)
   })
   },[])
   return (
@@ -31,8 +31,10 @@ export default function Header() {
           <Link onClick={()=>auth.currentUser && signOut(auth)} to={!auth.currentUser && "/login" }><span className="header__optionLineTwo">{auth.currentUser ? 'Sign Out':'Sign In' }</span></Link>
         </div>
         <div className="header__option">
-          <span className="header__optionLineOne">Returns</span>
-          <span className="header__optionLineTwo">& Orders</span>
+          <Link to="/orders">
+            <div className="header__optionLineOne">Returns</div>
+            <div className="header__optionLineTwo">& Orders</div>
+          </Link>
         </div>
         <div className="header__option">
           <span className="header__optionLineOne">Your</span>

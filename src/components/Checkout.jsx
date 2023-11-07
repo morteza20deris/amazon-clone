@@ -7,7 +7,7 @@ function Checkout() {
 	const { kartItems } = globalStore()
 	const sortedCart = kartItems.sort((a,b)=>a.title.localeCompare(b.title))
   return (
-	<div className='checkout'>
+	<div id='checkout' className='checkout'>
 		<div className="checkout__left">
 			<img className='checkout__ad' src="https://images-na.ssl-images-amazon.com/images/G/02/UK_CCMP/TM/OCC_Amazon1._CB423492668_.jpg" alt="checkout Ad" />
 			<div className="checkout__title">

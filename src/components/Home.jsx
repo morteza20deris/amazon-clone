@@ -8,7 +8,8 @@ function Home() {
           <div className="home__container">
               <img className='home__image' src={HomeBackground} alt="homeBackground" />
           </div>
-          <div className="home__row">
+      <div className="home__row">
+        
         <Product
           key={0}
             id="12321341"

@@ -5,7 +5,7 @@ import globalStore from '../Services/globalStore'
 import Delete from '@mui/icons-material/Delete'
 import RemoveCircleIcon from '@mui/icons-material/RemoveCircle';
 import AddCircleIcon from '@mui/icons-material/AddCircle';
-function CheckoutProduct({ id, image, title, price, rating, count }) {
+function CheckoutProduct({ id, image, title, price, rating, count,ordered }) {
 	const { removeKartItem, modifyKartItem } = globalStore()
 
 	const addButtonHandler = () => modifyKartItem({ id: id, title: title, price: price, rating: rating, image: image, count: count + 1 })
@@ -30,12 +30,15 @@ function CheckoutProduct({ id, image, title, price, rating, count }) {
 			  <div className="checkoutProduct__rating">
 				  {Array(rating).fill().map((_,i)=><Star key={i}/>)}
 			  </div>
-			  <div className="checkoutProduct__controls">
-				<Delete onClick={()=>removeKartItem({id:id})} />
-				  <RemoveCircleIcon onClick={removeButtonHandler } />
-				<input readOnly value={count} className='checkoutProduct__itemCount' type="number" />
-				  <AddCircleIcon onClick={addButtonHandler} />
-			  </div>
+			  {ordered ? <div className='order__count'>Count: { count}</div> : (
+				  <div className="checkoutProduct__controls">
+					<Delete onClick={()=>removeKartItem({id:id})} />
+				  	<RemoveCircleIcon onClick={removeButtonHandler } />
+					<input readOnly value={count} className='checkoutProduct__itemCount' type="number" />
+				  	<AddCircleIcon onClick={addButtonHandler} />
+				  </div>
+			  )}
+			  
 		  </div>
     </div>
   )

@@ -1,0 +1,14 @@
+.orders{
+    padding: 20px 80px;
+}
+.orders h1{
+    margin: 30px 0px;
+}
+
+.login__message{
+    font-size: 5vw;
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}

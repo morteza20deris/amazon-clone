@@ -1,0 +1,33 @@
+#loader {
+    position: absolute;
+    height: 100vh;
+    display: grid;
+    place-items: center;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    z-index: 99999;
+    
+}
+
+.loader__container{
+    padding: 100px;
+    text-align: center;
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.22), 0px 1px 2px rgba(0, 0, 0, 0.24);
+    background-color: lightgray;
+    border-radius: 10px;
+}
+#loader h1{
+    margin-top: 50px;
+    text-transform: inherit !important;
+    color: #131921;
+    font-size: 4vw;
+}
+#loader>.MuiCircularProgress-root{
+    object-fit: contain;
+    height: 100px;
+    margin-bottom: 40px;
+}
+.MuiCircularProgress-colorPrimary {
+    color: #131921 !important;
+}
