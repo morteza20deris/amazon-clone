@@ -1,12 +1,50 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import "./Home.css"
 import HomeBackground from "../Assets/HomeBackground.jpg"
+import Background1 from "../Assets/background1.jpg"
+import Background2 from "../Assets/background2.png"
+import Background3 from "../Assets/background3.jpg"
+import Background4 from "../Assets/background4.jpg"
+import Background5 from "../Assets/background5.png"
+import Background6 from "../Assets/background6.webp"
+import Background7 from "../Assets/background7.jpg"
+import Background8 from "../Assets/background8.jpg"
+import Splide from '@splidejs/splide';
+import '@splidejs/splide/css';
 import Product from './Product'
 function Home() {
+
+  
+
+  useEffect(() => {
+    var test = new Splide('.splide',{type:'loop', autoplay:true}).mount();
+  
+    return () => {
+      test.destroy()
+    }
+  }, [])
+  
+
   return (
       <div className='home'>
-          <div className="home__container">
-              <img className='home__image' src={HomeBackground} alt="homeBackground" />
+              
+      <div className="home__container">
+        <div className="splide" role="group" aria-label="Splide Basic HTML Example">
+          <div className="splide__track">
+            <ul className="splide__list">
+              <img className='home__image splide__slide' src={HomeBackground} alt="homeBackground" />
+              <img className='home__image splide__slide' src={Background1} alt="homeBackground" />
+              <img className='home__image splide__slide' src={Background8} alt="homeBackground" />
+              <img className='home__image splide__slide' src={Background2} alt="homeBackground" />
+              <img className='home__image splide__slide' src={Background7} alt="homeBackground" />
+              <img className='home__image splide__slide' src={Background3} alt="homeBackground" />
+              <img className='home__image splide__slide' src={Background6} alt="homeBackground" />
+              <img className='home__image splide__slide' src={Background4} alt="homeBackground" />
+              <img className='home__image splide__slide' src={Background5} alt="homeBackground" />
+            </ul>
+          </div>
+        </div>
+              
           </div>
       <div className="home__row">
         
