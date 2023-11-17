@@ -15,7 +15,7 @@ function Orders() {
         }
     },[])
     useEffect(() => {
-        if (orders.length<1) {
+        if (orders.length<1 && auth.currentUser) {
             document.getElementById("loader").style.display = ""
         } else {
             document.getElementById("loader").style.display = "none"
