@@ -11,7 +11,7 @@ function Login() {
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     const formSubmitHandler = (e) => {
-        loginButtonRef.current.textContent = "Please Wait..."
+       if(loginButtonRef.current) loginButtonRef.current.textContent = "Please Wait..."
         e.preventDefault();
         signInWithEmailAndPassword(auth, email, password)
             .then(()=>navigate('/'))
@@ -20,7 +20,8 @@ function Login() {
     }
 
     const registerButtonHandler = () => {
-        registerButtonRef.current.textContent = "Please Wait..."
+        if (registerButtonRef.current) registerButtonRef.current.textContent = "Please Wait..."
+        
         createUserWithEmailAndPassword(auth, email, password)
             .then(()=>navigate('/'))
             .catch(err => alert(err.code.replaceAll("-", " ").replace("auth/", "")))
@@ -39,9 +40,9 @@ function Login() {
                   <input id='password' placeholder='Password' value={password} onChange={e => setPassword(e.target.value)} type="password" />
                   {password === '' && <p>Password is Required</p>}
                   {password.length <8 && <p>Password must be at least 8 characters long</p>}
-                  <button disabled={loginButtonRef.current.textContent === "Please Wait..."} ref={loginButtonRef} type='submit' className='login__signInButton'>Sign In</button>
+                  <button disabled={loginButtonRef.current && loginButtonRef.current.textContent === "Please Wait..."} ref={loginButtonRef} type='submit' className='login__signInButton'>Sign In</button>
               </form>
-              <button disabled={registerButtonRef.current.textContent === "Please Wait..."} ref={registerButtonRef}  onClick={registerButtonHandler} className='login__registerButton'>Create Account</button>
+              <button disabled={registerButtonRef.current && registerButtonRef.current.textContent === "Please Wait..."} ref={registerButtonRef}  onClick={registerButtonHandler} className='login__registerButton'>Create Account</button>
           </div>
     </div>
   )

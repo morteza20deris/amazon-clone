@@ -1,7 +1,7 @@
 import SearchIcon from "@mui/icons-material/Search";
 import ShoppingBasket from "@mui/icons-material/ShoppingBasket";
 import { signOut } from "firebase/auth";
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import amazonLogo from "../Assets/amazon-logo.png";
 import { auth } from "../Services/firebase";
@@ -10,10 +10,11 @@ import "./Header.css";
 
 export default function Header() {
   const { kartItems } = globalStore()
+  const [, setUser] = useState(null)
   // const [_, setUser] = useState(auth.currentUser)
   useEffect(() => {
     auth.onAuthStateChanged(user => {
-    // setUser(user)
+    setUser(user)
   })
   },[])
   return (
