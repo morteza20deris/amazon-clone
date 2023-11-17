@@ -4,7 +4,6 @@ import CheckoutProduct from './CheckoutProduct'
 import CurrencyFormat from 'react-currency-format';
 import getBasketTotal from '../Services/getBasketTotal';
 function Order({ order }) {
-    console.log(order.date);
   return (
       <div className='order'>
           <h2>Order</h2>

@@ -25,7 +25,7 @@ function Orders() {
       <div className='orders'>
           {!auth.currentUser ? <h1 className='login__message'>Please Log In First</h1> : (
               <div className="orders__order">
-                {orders?.map(orderItem => <Order order={orderItem}/>)}
+                {orders?.map((orderItem,index) => <Order key={index} order={orderItem}/>)}
               </div>
           )}
           

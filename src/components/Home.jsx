@@ -12,8 +12,9 @@ import Background8 from "../Assets/background8.jpg"
 import Splide from '@splidejs/splide';
 import '@splidejs/splide/css';
 import Product from './Product'
+import { useParams } from 'react-router-dom'
 function Home() {
-
+  const pageParams = useParams()
   
 
   useEffect(() => {
@@ -23,6 +24,10 @@ function Home() {
       test.destroy()
     }
   }, [])
+
+  useEffect(() => {
+    if (document.getElementById("loader")) document.getElementById("loader").style.display = "none"
+  },[pageParams])
   
 
   return (
