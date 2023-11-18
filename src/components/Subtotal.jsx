@@ -55,7 +55,7 @@ function Subtotal() {
         prefix={"$"}
       />
 
-      <button id="checkoutButton" onClick={checkoutButtonClickHandler}>Proceed to Checkout</button>
+      <button disabled={!auth.currentUser} id="checkoutButton" onClick={checkoutButtonClickHandler}>{auth.currentUser? "Proceed to Checkout":"Please Login First" }</button>
     </div>
   )
 }
